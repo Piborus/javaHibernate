@@ -26,5 +26,4 @@ public class CategoriaDao {
         this.entityManager.remove(categoria);
     }
 
-
 }
