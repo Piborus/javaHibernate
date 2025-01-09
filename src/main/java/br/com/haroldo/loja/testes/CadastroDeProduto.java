@@ -2,8 +2,8 @@ package br.com.haroldo.loja.testes;
 
 import br.com.haroldo.loja.dao.CategoriaDao;
 import br.com.haroldo.loja.dao.ProdutoDao;
-import br.com.haroldo.loja.loja.Categoria;
-import br.com.haroldo.loja.loja.Produto;
+import br.com.haroldo.loja.modelo.Categoria;
+import br.com.haroldo.loja.modelo.Produto;
 import br.com.haroldo.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;

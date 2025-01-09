@@ -1,20 +1,25 @@
-package br.com.haroldo.loja.loja;
+package br.com.haroldo.loja.modelo;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "categorias")
-public class Categoria {
+@Table(name = "clientes")
+public class Cliente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
 
-    public Categoria() {
+    private String cpf;
+
+    public Cliente(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
     }
 
-    public Categoria(String nome) {
-        this.nome = nome;
+    public Cliente() {
     }
 
     public Long getId() {
@@ -31,5 +36,13 @@ public class Categoria {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

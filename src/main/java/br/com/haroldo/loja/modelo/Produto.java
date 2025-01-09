@@ -1,4 +1,4 @@
-package br.com.haroldo.loja.loja;
+package br.com.haroldo.loja.modelo;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

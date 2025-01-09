@@ -1,6 +1,6 @@
 package br.com.haroldo.loja.dao;
 
-import br.com.haroldo.loja.loja.Produto;
+import br.com.haroldo.loja.modelo.Produto;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;

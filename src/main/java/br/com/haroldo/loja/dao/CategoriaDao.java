@@ -1,7 +1,6 @@
 package br.com.haroldo.loja.dao;
 
-import br.com.haroldo.loja.loja.Categoria;
-import br.com.haroldo.loja.loja.Produto;
+import br.com.haroldo.loja.modelo.Categoria;
 
 import javax.persistence.EntityManager;
 
