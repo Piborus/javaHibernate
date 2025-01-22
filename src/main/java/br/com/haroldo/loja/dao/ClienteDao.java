@@ -1,25 +1,27 @@
 package br.com.haroldo.loja.dao;
 
+import br.com.haroldo.loja.modelo.Cliente;
+import br.com.haroldo.loja.modelo.Pedido;
 import br.com.haroldo.loja.modelo.Produto;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ProdutoDao {
+public class ClienteDao {
 
     private EntityManager entityManager;
 
-    public ProdutoDao(EntityManager entityManager){
+    public ClienteDao(EntityManager entityManager){
         this.entityManager = entityManager;
     }
 
-    public void cadastrar(Produto produto){
-        this.entityManager.persist(produto);
+    public void cadastrar(Cliente cliente){
+        this.entityManager.persist(cliente);
     }
 
-    public Produto buscarPorId(Long id){
-        return entityManager.find(Produto.class, id);
+    public Cliente buscarPorId(Long id){
+        return entityManager.find(Cliente.class, id);
     }
 
     public List<Produto> buscarTodos(){
@@ -35,8 +37,8 @@ public class ProdutoDao {
     }
 
     public List<Produto> buscarPorNomeDaCategoria(String nome){
-//        String jpql = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome";
-        return entityManager.createNamedQuery("Produto.produtosPorCategoria", Produto.class)
+        String jpql = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome";
+        return entityManager.createQuery(jpql, Produto.class)
                 .setParameter("nome", nome)
                 .getResultList();
     }
