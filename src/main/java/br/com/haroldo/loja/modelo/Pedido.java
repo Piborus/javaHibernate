@@ -20,7 +20,7 @@ public class Pedido {
 
     private LocalDateTime data = LocalDateTime.now();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
@@ -69,5 +69,9 @@ public class Pedido {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public List<ItemPedido> getItemPedido() {
+        return itemPedido;
     }
 }
