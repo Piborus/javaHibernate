@@ -3,11 +3,13 @@ package br.com.haroldo.loja.testes;
 import br.com.haroldo.loja.dao.CategoriaDao;
 import br.com.haroldo.loja.dao.ProdutoDao;
 import br.com.haroldo.loja.modelo.Categoria;
+import br.com.haroldo.loja.modelo.CategoriaId;
 import br.com.haroldo.loja.modelo.Produto;
 import br.com.haroldo.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public class CadastroDeProduto {
@@ -25,6 +27,8 @@ public class CadastroDeProduto {
 
         BigDecimal precoDoProduto = produtoDao.buscarPrecoDoProdutoComNome("xiaomi Redmi");
         System.out.println("Preço do produto: " + precoDoProduto);
+
+        produtoDao.buscarPorParametrosComCriteria( null, null, LocalDate.now());
     }
 
     private static void cadastrarProduto() {
@@ -44,6 +48,8 @@ public class CadastroDeProduto {
         produtoDao.cadastrar(celular);
 
         entityManager.getTransaction().commit();
+        entityManager.find(Categoria.class, new CategoriaId("CELULARES", "xpto"));
+
         entityManager.close();
 
         //Sem o MERGE
